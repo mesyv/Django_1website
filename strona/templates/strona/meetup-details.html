@@ -19,6 +19,8 @@
 {% endblock %}
 
 {% block body %}
+
+{% if meetup_found %}
 <article>
     <img src="" alt="">
     <section id="location">
@@ -37,4 +39,8 @@
         FORMs
     </section>
     </article>
+{% else %}
+<h1>No meetup found! Sorki!</h1>
+{% endif %}
+
 {% endblock %}
