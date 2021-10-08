@@ -1,0 +1,28 @@
+{% extends 'strona/base/base.html' %}
+
+{% load static %}
+
+{% block title %}
+You are registered successfully!
+{% endblock %}
+
+{% block site_css %}
+<link rel="stylesheet" href="{% static 'strona/styles/registration-confirmation.css' %}">
+{% endblock %}
+
+{% block main_heading %}Thanks for signing!{% endblock %}
+
+{% block body %}
+<section id="confirmation">
+    <h2>Yeah!</h2>
+    <p>Thanks</p>
+    <p>for</p>
+    <p>the</p>
+    <p>email!</p>
+</section>
+
+<section id="continue">
+    <p>Of course you can sign up for more than one meetup!</p>
+    <p><a href="/meetup" class="btn">Explore our meetup</a></p>
+</section>
+{% endblock %}

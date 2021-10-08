@@ -22,21 +22,29 @@
 
 {% if meetup_found %}
 <article>
-    <img src="" alt="">
+    <img id="main-image" src="{{ meetup.image.url }}" alt="{{ meetup.title }}">
     <section id="location">
         <h2>Meetup location</h2>
-        <address>This meetup takes place in <span>LOCATION</span> (ADDRESS).</address>
+        <address>This meetup takes place in <span>{{ meetup.location.name }}</span> {{ meetup.location.address }}.</address>
     </section>
     <section>
         <h2>What's this meetup about?</h2>
-        <p>{{ meetup_description }}</p>
+        <p>{{ meetup.description }}</p>
         <footer>
-            <p>Need more info? Please <a href="">Contact us</a></p>
+            <p>Need more info? Please <a href="mailto:{{ meetup.organizer_email }}">Contact us</a></p>
         </footer>
     </section>
     <section id="registration">
         <h2>Join us!</h2>
-        FORMs
+        <form action="{% url 'meetup-detail' meetup.slug %}" method="POST">
+            {% csrf_token %}
+            <ul>
+            {{ form.as_ul }}
+            </ul>
+            <div id="registration-actions">
+                <button>Register</button>
+            </div>
+        </form>
     </section>
     </article>
 {% else %}
